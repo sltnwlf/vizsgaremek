@@ -11,14 +11,13 @@ import java.util.concurrent.TimeUnit;
 public class TermsAndConditionsTests {
 
     private WebDriver driver;
-    private final String username = "Zoli";
-    private final String password = "123";
+    private final String username = "test";
+    private final String password = "test";
 
     @BeforeEach
     public void setup(){
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-notifications");
@@ -27,9 +26,7 @@ public class TermsAndConditionsTests {
         options.addArguments("--headless");
         options.addArguments("--window-size=1920, 1080");
         options.addArguments("start-maximized");
-
         driver = new ChromeDriver(options);
-
         driver.navigate().to("https://lennertamas.github.io/portio/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();

@@ -8,7 +8,7 @@ public class RegistrationAndLoginPage {
     private WebDriver driver;
     private WebDriverWait wait;
     private final By acceptButton = By.xpath("//*[@id=\"terms-and-conditions-button\"]");
-    private final By xIgnore = By.xpath("//*[@id=\"overlay\"]/div/div[1]");
+    private final By ignoreButton = By.xpath("//*[@id=\"overlay\"]/div/div[1]");
     private final By popupWindow = By.xpath("//*[@id=\"overlay\"]/div");
     private final By registerTab = By.xpath("//*[@id=\"register-form-button\"]");
     private final By registerUsername = By.xpath("//*[@id=\"register-username\"]");
@@ -30,7 +30,7 @@ public class RegistrationAndLoginPage {
     }
 
     public void clickOnTermsAndConditionsIgnore() {
-        driver.findElement(xIgnore).click();
+        driver.findElement(ignoreButton).click();
     }
 
     public boolean isThereTermsAndConditionsPopupWindow() {

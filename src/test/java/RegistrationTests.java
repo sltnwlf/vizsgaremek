@@ -16,7 +16,6 @@ public class RegistrationTests {
     public void setup(){
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-notifications");
@@ -25,9 +24,7 @@ public class RegistrationTests {
         options.addArguments("--headless");
         options.addArguments("--window-size=1920, 1080");
         options.addArguments("start-maximized");
-
         driver = new ChromeDriver(options);
-
         driver.navigate().to("https://lennertamas.github.io/portio/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -37,8 +34,8 @@ public class RegistrationTests {
     @DisplayName("TC3")
     @Severity(SeverityLevel.CRITICAL)
     public void testSuccessfulRegistration(){
-        String username = "Zoli";
-        String password = "123";
+        String username = "test";
+        String password = "test";
         RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
         registrationAndLoginPage.clickOnTermsAndConditionsAccept();
         registrationAndLoginPage.registration(username, password);
