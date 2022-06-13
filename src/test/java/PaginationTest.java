@@ -30,7 +30,7 @@ public class PaginationTest {
     }
 
     @RepeatedTest(2)
-    @DisplayName("TC8")
+    @DisplayName("TC9")
     @Severity(SeverityLevel.NORMAL)
     public void testPagination() {
         String username = "test";
@@ -40,8 +40,6 @@ public class PaginationTest {
         registrationAndLoginPage.registration(username, password);
         registrationAndLoginPage.login(username, password);
         LandingPage landingPage = new LandingPage(driver);
-        //landingPage.clickOnBlogButton();
-        //driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         landingPage.clickOnSeeAllPostButton();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         RecentsArticlePage recentsArticlePage = new RecentsArticlePage(driver);
@@ -63,6 +61,5 @@ public class PaginationTest {
         driver.manage().deleteAllCookies();
         driver.quit();
     }
-
 
 }

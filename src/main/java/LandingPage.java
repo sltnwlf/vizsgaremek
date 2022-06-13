@@ -15,6 +15,8 @@ public class LandingPage {
     private final By blogButton = By.xpath("//*[@id=\"navbarCollapse\"]/ul/li[7]/a");
     private final By seeAllPostButton = By.xpath("//*[@id=\"blog\"]/div[2]/div[1]/div[2]/div/a");
 
+    private final By logoutButton = By.xpath("//*[@id=\"logout-link\"]/a");
+
     public LandingPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -29,5 +31,9 @@ public class LandingPage {
 
     public void clickOnSeeAllPostButton() {
         driver.findElement(seeAllPostButton).click();
+    }
+
+    public void clickOnLogoutButton() {
+        driver.findElement(logoutButton).click();
     }
 }

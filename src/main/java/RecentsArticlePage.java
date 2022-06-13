@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Collections;
 import java.util.List;
 
 public class RecentsArticlePage {
@@ -12,6 +13,7 @@ public class RecentsArticlePage {
     WebDriverWait wait;
     private final By posts = By.xpath("//*[@id=\"content\"]/section/div/div/div");
     private final By nextButton = By.xpath("//*[@id=\"content\"]/section/div/div/nav/ul/li[3]/a");
+    private final By postLinks = By.xpath("//a[starts-with(@class, \"text-dark\")]");
 
     public RecentsArticlePage(WebDriver driver) {
         this.driver = driver;
@@ -43,4 +45,13 @@ public class RecentsArticlePage {
         }
     }
 
+    public String[] listPostTitles() {
+        List<WebElement> postLinkList = driver.findElements(postLinks);
+        String[] titleList = new String[postLinkList.size()];
+        for (int i = 0; i < postLinkList.size(); i++) {
+            String title = postLinkList.get(i).getText();
+            titleList[i] = title;
+        }
+        return titleList;
+    }
 }
