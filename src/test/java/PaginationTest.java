@@ -1,36 +1,13 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
-public class PaginationTest {
-    private WebDriver driver;
-
-    @BeforeEach
-    public void setup(){
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-notifications");
-        options.addArguments("−−incognito");
-        options.addArguments("--disable-extensions");
-        options.addArguments("--headless");
-        options.addArguments("--window-size=1920, 1080");
-        options.addArguments("start-maximized");
-        driver = new ChromeDriver(options);
-        driver.navigate().to("https://lennertamas.github.io/portio/");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-    }
+public class PaginationTest extends BaseTest {
 
     @RepeatedTest(2)
-    @DisplayName("TC9")
+    @DisplayName("TC09")
     @Severity(SeverityLevel.NORMAL)
     public void testPagination() {
         String username = "test";
@@ -43,6 +20,7 @@ public class PaginationTest {
         landingPage.clickOnSeeAllPostButton();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         RecentsArticlePage recentsArticlePage = new RecentsArticlePage(driver);
+        int expected = 9;
         int actual = 0;
         while (true) {
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -52,14 +30,7 @@ public class PaginationTest {
             }
             recentsArticlePage.clickOnNextButton();
         }
-        int expected = 9;
+
         Assertions.assertEquals(expected, actual);
     }
-
-    @AfterEach
-    public void dispose(){
-        driver.manage().deleteAllCookies();
-        driver.quit();
-    }
-
 }

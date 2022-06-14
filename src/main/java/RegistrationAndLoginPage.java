@@ -4,8 +4,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegistrationAndLoginPage {
-
-    private WebDriver driver;
+    private final WebDriver driver;
     private WebDriverWait wait;
     private final By acceptButton = By.xpath("//*[@id=\"terms-and-conditions-button\"]");
     private final By ignoreButton = By.xpath("//*[@id=\"overlay\"]/div/div[1]");
@@ -28,11 +27,9 @@ public class RegistrationAndLoginPage {
     public void clickOnTermsAndConditionsAccept() {
         driver.findElement(acceptButton).click();
     }
-
     public void clickOnTermsAndConditionsIgnore() {
         driver.findElement(ignoreButton).click();
     }
-
     public boolean isThereTermsAndConditionsPopupWindow() {
         try {
             wait = new WebDriverWait(driver, 2);
@@ -43,25 +40,21 @@ public class RegistrationAndLoginPage {
             return false;
         }
     }
-
     public void registration(String username, String password) {
         driver.findElement(registerTab).click();
         driver.findElement(registerUsername).sendKeys(username);
         driver.findElement(registerPassword).sendKeys(password);
         driver.findElement(registerButton).click();
     }
-
     public String getRegisterAlertMessage() {
         return driver.findElement(registerAlertMessage).getText();
     }
-
     public void login(String username, String password) {
         driver.findElement(loginTab).click();
         driver.findElement(loginUsername).sendKeys(username);
         driver.findElement(loginPassword).sendKeys(password);
         driver.findElement(loginButton).click();
     }
-
     public boolean isThereLoginWindow() {
         try {
             wait = new WebDriverWait(driver, 2);
@@ -72,5 +65,4 @@ public class RegistrationAndLoginPage {
             return false;
         }
     }
-
 }

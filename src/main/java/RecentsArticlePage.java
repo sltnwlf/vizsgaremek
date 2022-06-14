@@ -4,13 +4,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Collections;
 import java.util.List;
 
 public class RecentsArticlePage {
-
-    WebDriver driver;
-    WebDriverWait wait;
+    private final WebDriver driver;
+    private WebDriverWait wait;
     private final By posts = By.xpath("//*[@id=\"content\"]/section/div/div/div");
     private final By nextButton = By.xpath("//*[@id=\"content\"]/section/div/div/nav/ul/li[3]/a");
     private final By postLinks = By.xpath("//a[starts-with(@class, \"text-dark\")]");
@@ -27,7 +25,6 @@ public class RecentsArticlePage {
 
         return num;
     }
-
     public boolean isThereNextButton() {
         try {
             wait = new WebDriverWait(driver, 5);
@@ -38,13 +35,11 @@ public class RecentsArticlePage {
             return false;
         }
     }
-
     public void clickOnNextButton() {
         if (isThereNextButton()) {
             driver.findElement(nextButton).click();
         }
     }
-
     public String[] listPostTitles() {
         List<WebElement> postLinkList = driver.findElements(postLinks);
         String[] titleList = new String[postLinkList.size()];
