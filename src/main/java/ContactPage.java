@@ -26,10 +26,15 @@ public class ContactPage {
     public void fillMessage(String input) {
         driver.findElement(message).sendKeys(input);
     }
+    public void fillForm(String name, String email, String message) {
+        fillName(name);
+        fillEmail(email);
+        fillMessage(message);
+    }
     public void clickOnCheckbox() {
         driver.findElement(checkbox).click();
     }
-    public void clickOnButton() {
+    public void clickOnSendButton() {
         driver.findElement(button).click();
     }
     public boolean isThereStatusMessage() {
@@ -42,4 +47,5 @@ public class ContactPage {
             return false;
         }
     }
+
 }

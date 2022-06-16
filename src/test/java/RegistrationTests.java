@@ -7,29 +7,77 @@ public class RegistrationTests extends BaseTest {
     @RepeatedTest(2)
     @DisplayName("TC03")
     @Severity(SeverityLevel.CRITICAL)
-    public void testSuccessfulRegistration(){
-        String username = "test";
-        String password = "test";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(username, password);
-        String actual = registrationAndLoginPage.getRegisterAlertMessage();
+    public void testRegistrationEverythingIsFilled(){
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registration(username,password,emailValid,description);
+        String actual = regLog.getRegisterAlertMessage();
         String expected = "User registered!";
-
         Assertions.assertEquals(expected, actual);
     }
     @RepeatedTest(2)
     @DisplayName("TC04")
     @Severity(SeverityLevel.CRITICAL)
-    public void testUnsuccessfulRegistration() {
-        String username = "";
-        String password = "";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(username, password);
-        String actual = registrationAndLoginPage.getRegisterAlertMessage();
-        String expected = "Invalid data";
-
+    public void testRegistrationDescriptionIsEmpty(){
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registration(username,password,emailValid,empty);
+        String actual = regLog.getRegisterAlertMessage();
+        String expected = "User registered!";
         Assertions.assertEquals(expected, actual);
     }
+    @RepeatedTest(2)
+    @DisplayName("TC05")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testRegistrationEmailAndDescriptionAreEmpty(){
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registration(username,password,empty,empty);
+        String actual = regLog.getRegisterAlertMessage();
+        String expected = "User registered!";
+        Assertions.assertEquals(expected, actual);
+    }
+    @RepeatedTest(2)
+    @DisplayName("TC06")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testRegistrationEmailWithoutAtSign(){
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registration(username,password,emailWithoutAtSign,description);
+        boolean actual = regLog.isThereRegisterAlertMessage();
+        Assertions.assertFalse(actual);
+    }
+    @RepeatedTest(2)
+    @DisplayName("TC07")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testRegistrationEmailWithoutDot(){
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registration(username,password,emailWithoutDot,description);
+        boolean actual = regLog.isThereRegisterAlertMessage();
+        Assertions.assertFalse(actual);
+    }
+    @RepeatedTest(2)
+    @DisplayName("TC08")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testRegistrationPasswordIsEmpty(){
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registration(username,empty,emailValid,description);
+        boolean actual = regLog.isThereRegisterAlertMessage();
+        Assertions.assertFalse(actual);
+    }
+    @RepeatedTest(2)
+    @DisplayName("TC09")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testRegistrationUsernameIsEmpty(){
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registration(empty,password,emailValid,description);
+        boolean actual = regLog.isThereRegisterAlertMessage();
+        Assertions.assertFalse(actual);
+    }
+    @RepeatedTest(2)
+    @DisplayName("TC10")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testRegistrationEverythingIsEmpty(){
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registration(empty,empty,empty,empty);
+        boolean actual = regLog.isThereRegisterAlertMessage();
+        Assertions.assertFalse(actual);
+    }
+
 }

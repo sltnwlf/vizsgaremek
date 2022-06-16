@@ -1,6 +1,4 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +8,21 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected WebDriver driver;
+    protected RegLogPage regLog;
+    protected LandingPage landing;
+    protected ArticlePage articles;
+    protected ContactPage contact;
+    protected final String username = "Felhasznalonev";
+    protected final String password = "Jelszo01";
+    protected final String emailValid = "teszt@email.hu";
+    protected final String emailNothingAfterAtSign = "teszt@";
+    protected final String emailNothingBeforeAtSign = "@email.hu";
+    protected final String emailWithoutAtSign = "email.hu";
+    protected final String emailWithoutDot = "teszt@email";
+    protected final String description = "Egy rovid leiras.";
+    protected final String name = "Nev";
+    protected final String message = "Egy rovid uzenet.";
+    protected final String empty = "";
 
     @BeforeEach
     public void setup(){
@@ -27,6 +40,10 @@ public class BaseTest {
         driver.navigate().to("https://lennertamas.github.io/portio/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        regLog = new RegLogPage(driver);
+        landing = new LandingPage(driver);
+        articles = new ArticlePage(driver);
+        contact = new ContactPage(driver);
     }
 
     @AfterEach

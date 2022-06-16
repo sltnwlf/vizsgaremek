@@ -5,188 +5,129 @@ import org.junit.jupiter.api.*;
 public class DataInputTests extends BaseTest {
 
     @RepeatedTest(2)
-    @DisplayName("TC11")
-    @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputSuccessful() {
-        String data = "test";
-        String emailData = "test@test.test";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(data, data);
-        registrationAndLoginPage.login(data, data);
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.clickOnGetInTouchButton();
-        ContactPage contactPage = new ContactPage(driver);
-        contactPage.fillName(data);
-        contactPage.fillEmail(emailData);
-        contactPage.fillMessage(data);
-        contactPage.clickOnCheckbox();
-        contactPage.clickOnButton();
-        boolean actual = contactPage.isThereStatusMessage();
-
-        Assertions.assertTrue(actual);
-    }
-    @RepeatedTest(2)
-    @DisplayName("TC12")
-    @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputSuccessfulEmptyMessage() {
-        String data = "test";
-        String emailData = "test@test.test";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(data, data);
-        registrationAndLoginPage.login(data, data);
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.clickOnGetInTouchButton();
-        ContactPage contactPage = new ContactPage(driver);
-        contactPage.fillName(data);
-        contactPage.fillEmail(emailData);
-        contactPage.clickOnCheckbox();
-        contactPage.clickOnButton();
-        boolean actual = contactPage.isThereStatusMessage();
-
-        Assertions.assertTrue(actual);
-    }
-    @RepeatedTest(2)
-    @DisplayName("TC13")
-    @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputUnsuccessfulEmptyCheckbox() {
-        String data = "test";
-        String emailData = "test@test.test";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(data, data);
-        registrationAndLoginPage.login(data, data);
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.clickOnGetInTouchButton();
-        ContactPage contactPage = new ContactPage(driver);
-        contactPage.fillName(data);
-        contactPage.fillEmail(emailData);
-        contactPage.clickOnButton();
-        boolean actual = contactPage.isThereStatusMessage();
-
-        Assertions.assertFalse(actual);
-    }
-    @RepeatedTest(2)
-    @DisplayName("TC14")
-    @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputUnsuccessfulEmptyEmail() {
-        String data = "test";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(data, data);
-        registrationAndLoginPage.login(data, data);
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.clickOnGetInTouchButton();
-        ContactPage contactPage = new ContactPage(driver);
-        contactPage.fillName(data);
-        contactPage.clickOnCheckbox();
-        contactPage.clickOnButton();
-        boolean actual = contactPage.isThereStatusMessage();
-
-        Assertions.assertFalse(actual);
-    }
-    @RepeatedTest(2)
-    @DisplayName("TC15")
-    @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputUnsuccessfulWithoutAtSign(){
-        String data = "test";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(data, data);
-        registrationAndLoginPage.login(data, data);
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.clickOnGetInTouchButton();
-        ContactPage contactPage = new ContactPage(driver);
-        contactPage.fillName(data);
-        contactPage.fillEmail(data);
-        contactPage.clickOnCheckbox();
-        contactPage.clickOnButton();
-        boolean actual = contactPage.isThereStatusMessage();
-
-        Assertions.assertFalse(actual);
-    }
-    @RepeatedTest(2)
-    @DisplayName("TC16")
-    @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputUnsuccessfulEmptyAfterAtSign() {
-        String data = "test";
-        String emailData = "test@";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(data, data);
-        registrationAndLoginPage.login(data, data);
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.clickOnGetInTouchButton();
-        ContactPage contactPage = new ContactPage(driver);
-        contactPage.fillName(data);
-        contactPage.fillEmail(emailData);
-        contactPage.clickOnCheckbox();
-        contactPage.clickOnButton();
-        boolean actual = contactPage.isThereStatusMessage();
-
-        Assertions.assertFalse(actual);
-    }
-    @RepeatedTest(2)
-    @DisplayName("TC17")
-    @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputUnsuccessfulEmptyBeforeAtSign() {
-        String data = "test";
-        String emailData = "@test.test";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(data, data);
-        registrationAndLoginPage.login(data, data);
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.clickOnGetInTouchButton();
-        ContactPage contactPage = new ContactPage(driver);
-        contactPage.fillName(data);
-        contactPage.fillEmail(emailData);
-        contactPage.clickOnCheckbox();
-        contactPage.clickOnButton();
-        boolean actual = contactPage.isThereStatusMessage();
-
-        Assertions.assertFalse(actual);
-    }
-    @RepeatedTest(2)
-    @DisplayName("TC18")
-    @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputUnsuccessfulWithoutDot() {
-        String data = "test";
-        String emailData = "test@test";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(data, data);
-        registrationAndLoginPage.login(data, data);
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.clickOnGetInTouchButton();
-        ContactPage contactPage = new ContactPage(driver);
-        contactPage.fillName(data);
-        contactPage.fillEmail(emailData);
-        contactPage.clickOnCheckbox();
-        contactPage.clickOnButton();
-        boolean actual = contactPage.isThereStatusMessage();
-
-        Assertions.assertFalse(actual);
-    }
-    @RepeatedTest(2)
     @DisplayName("TC19")
     @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputUnsuccessfulEmptyName() {
-        String data = "test";
-        String emailData = "test@test.test";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(data, data);
-        registrationAndLoginPage.login(data, data);
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.clickOnGetInTouchButton();
-        ContactPage contactPage = new ContactPage(driver);
-        contactPage.fillEmail(emailData);
-        contactPage.clickOnCheckbox();
-        contactPage.clickOnButton();
-        boolean actual = contactPage.isThereStatusMessage();
+    public void testDataInputEverythingIsFilled() {
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registrationAndLogin(username,password,emailValid,description,username,password);
+        landing.clickOnGetInTouchButton();
+        contact.fillForm(name,emailValid,message);
+        contact.clickOnCheckbox();
+        contact.clickOnSendButton();
+        boolean actual = contact.isThereStatusMessage();
+        Assertions.assertTrue(actual);
+    }
 
+    @RepeatedTest(2)
+    @DisplayName("TC20")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testDataInputMessageEmpty() {
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registrationAndLogin(username,password,emailValid,description,username,password);
+        landing.clickOnGetInTouchButton();
+        contact.fillForm(name,emailValid,empty);
+        contact.clickOnCheckbox();
+        contact.clickOnSendButton();
+        boolean actual = contact.isThereStatusMessage();
+        Assertions.assertTrue(actual);
+    }
+
+    @RepeatedTest(2)
+    @DisplayName("TC21")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testDataInputCheckboxEmpty() {
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registrationAndLogin(username,password,emailValid,description,username,password);
+        landing.clickOnGetInTouchButton();
+        contact.fillForm(name,emailValid,message);
+        contact.clickOnSendButton();
+        boolean actual = contact.isThereStatusMessage();
         Assertions.assertFalse(actual);
     }
+
+    @RepeatedTest(2)
+    @DisplayName("TC22")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testDataInputEmailEmpty() {
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registrationAndLogin(username,password,emailValid,description,username,password);
+        landing.clickOnGetInTouchButton();
+        contact.fillForm(name,empty,message);
+        contact.clickOnCheckbox();
+        contact.clickOnSendButton();
+        boolean actual = contact.isThereStatusMessage();
+        Assertions.assertFalse(actual);
+    }
+
+    @RepeatedTest(2)
+    @DisplayName("TC23")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testDataInputEmailWithoutAtSign(){
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registrationAndLogin(username,password,emailValid,description,username,password);
+        landing.clickOnGetInTouchButton();
+        contact.fillForm(name,emailWithoutAtSign,message);
+        contact.clickOnCheckbox();
+        contact.clickOnSendButton();
+        boolean actual = contact.isThereStatusMessage();
+        Assertions.assertFalse(actual);
+    }
+
+    @RepeatedTest(2)
+    @DisplayName("TC24")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testDataInputEmailNothingAfterAtSign() {
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registrationAndLogin(username,password,emailValid,description,username,password);
+        landing.clickOnGetInTouchButton();
+        contact.fillForm(name,emailNothingAfterAtSign,message);
+        contact.clickOnCheckbox();
+        contact.clickOnSendButton();
+        boolean actual = contact.isThereStatusMessage();
+        Assertions.assertFalse(actual);
+    }
+
+    @RepeatedTest(2)
+    @DisplayName("TC25")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testDataInputEmailNothingBeforeAtSign() {
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registrationAndLogin(username,password,emailValid,description,username,password);
+        landing.clickOnGetInTouchButton();
+        contact.fillForm(name,emailNothingBeforeAtSign,message);
+        contact.clickOnCheckbox();
+        contact.clickOnSendButton();
+        boolean actual = contact.isThereStatusMessage();
+        Assertions.assertFalse(actual);
+    }
+
+    @RepeatedTest(2)
+    @DisplayName("TC26")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testDataInputEmailWithoutDot() {
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registrationAndLogin(username,password,emailValid,description,username,password);
+        landing.clickOnGetInTouchButton();
+        contact.fillForm(name,emailWithoutDot,message);
+        contact.clickOnCheckbox();
+        contact.clickOnSendButton();
+        boolean actual = contact.isThereStatusMessage();
+        Assertions.assertFalse(actual);
+    }
+
+    @RepeatedTest(2)
+    @DisplayName("TC27")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testDataInputNameEmpty() {
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registrationAndLogin(username,password,emailValid,description,username,password);
+        landing.clickOnGetInTouchButton();
+        contact.fillForm(empty,emailValid,message);
+        contact.clickOnCheckbox();
+        contact.clickOnSendButton();
+        boolean actual = contact.isThereStatusMessage();
+        Assertions.assertFalse(actual);
+    }
+
 }
+

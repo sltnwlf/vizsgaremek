@@ -5,19 +5,14 @@ import org.junit.jupiter.api.*;
 public class LogoutTest extends BaseTest {
 
     @RepeatedTest(2)
-    @DisplayName("TC08")
+    @DisplayName("TC16")
     @Severity(SeverityLevel.CRITICAL)
-    public void testLogoutSuccessful(){
-        String username = "test";
-        String password = "test";
-        RegistrationAndLoginPage registrationAndLoginPage = new RegistrationAndLoginPage(driver);
-        registrationAndLoginPage.clickOnTermsAndConditionsAccept();
-        registrationAndLoginPage.registration(username, password);
-        registrationAndLoginPage.login(username, password);
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.clickOnLogoutButton();
-        boolean actual = registrationAndLoginPage.isThereLoginWindow();
-
+    public void testLogoutWithLogoutButton(){
+        regLog.clickOnTermsAndConditionsAccept();
+        regLog.registrationAndLogin(username,password,emailValid,description,username,password);
+        landing.clickOnLogoutButton();
+        boolean actual = regLog.isThereLoginWindow();
         Assertions.assertTrue(actual);
     }
+
 }
