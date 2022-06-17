@@ -3,6 +3,10 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import pages.ArticlePage;
+import pages.ContactPage;
+import pages.LandingPage;
+import pages.RegLogPage;
 
 import java.util.concurrent.TimeUnit;
 
