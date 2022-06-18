@@ -1,0 +1,20 @@
+Felhasznalonev01
+Jelszo01
+teszt01@email.hu
+Egy rovid uzenet01.
+Felhasznalonev02
+Jelszo02
+teszt02@email.hu
+Egy rovid uzenet02.
+Felhasznalonev03
+Jelszo03
+teszt03@email.hu
+Egy rovid uzenet03.
+Felhasznalonev04
+Jelszo04
+teszt04@email.hu
+Egy rovid uzenet04.
+Felhasznalonev05
+Jelszo05
+teszt05@email.hu
+Egy rovid uzenet05.
