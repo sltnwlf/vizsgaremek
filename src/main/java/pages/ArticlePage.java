@@ -66,7 +66,6 @@ public class ArticlePage {
         }
         return actual;
     }
-
     public ArrayList<String> listPostTitlesOnAllPage() {
         List<WebElement> postLinkList;
         ArrayList<String> titleList = new ArrayList<>();

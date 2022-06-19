@@ -1,6 +1,7 @@
 package requirements;
 
 import base.TestBase;
+import base.TestDataCollection;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Assertions;
@@ -12,7 +13,7 @@ import java.util.Set;
 
 public class DataInputRepeatedlyAndContinuouslyFromDatasourceTests extends TestBase {
 
-    @RepeatedTest(3)
+    @RepeatedTest(2)
     @DisplayName("TC28")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputOnRegistrationRepeatedlyAndContinuouslyFromDatasource() {
@@ -23,13 +24,15 @@ public class DataInputRepeatedlyAndContinuouslyFromDatasourceTests extends TestB
         int actual = cookieSet.size();
         Assertions.assertEquals(expected,actual);
     }
-    @RepeatedTest(3)
+    @RepeatedTest(2)
     @DisplayName("TC29")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputOnLoginRepeatedlyAndContinuouslyFromDatasource() {
         regLog.clickOnTermsAndConditionsAccept();
         regLog.regLogRepeatedlyAndContinuouslyFromDatasource();
-        regLog.login(aUsernameFromDatasource, aPasswordFromDatasource);
+        regLog.login(
+                TestDataCollection.usernameTestDataFromFile,
+                TestDataCollection.passwordTestDataFromFile);
         boolean logActual = regLog.isThereLoginWindow();
         Assertions.assertFalse(logActual);
     }

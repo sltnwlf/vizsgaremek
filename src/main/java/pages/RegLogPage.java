@@ -82,7 +82,7 @@ public class RegLogPage {
         driver.findElement(loginPassword).sendKeys(logPassword);
         driver.findElement(loginButton).click();
     }
-    public LandingPage registrationAndLogin(String regUsername,
+    public void registrationAndLogin(String regUsername,
                                             String regPassword,
                                             String regEmail,
                                             String regDescription,
@@ -98,7 +98,6 @@ public class RegLogPage {
         driver.findElement(loginUsername).sendKeys(logUsername);
         driver.findElement(loginPassword).sendKeys(logPassword);
         driver.findElement(loginButton).click();
-        return new LandingPage(driver);
     }
     public boolean isThereLoginWindow() {
         try {

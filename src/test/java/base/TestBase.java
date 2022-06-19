@@ -5,33 +5,18 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import pages.ArticlePage;
-import pages.ContactPage;
-import pages.LandingPage;
-import pages.RegLogPage;
+import pages.*;
 import utils.Utils;
 
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
     protected WebDriver driver;
-    protected final String username = "Felhasznalonev";
-    protected final String aUsernameFromDatasource = "Felhasznalonev03";
-    protected final String password = "Jelszo01";
-    protected final String aPasswordFromDatasource = "Jelszo03";
-    protected final String emailValid = "teszt@email.hu";
-    protected final String emailNothingAfterAtSign = "teszt@";
-    protected final String emailNothingBeforeAtSign = "@email.hu";
-    protected final String emailWithoutAtSign = "email.hu";
-    protected final String emailWithoutDot = "teszt@email";
-    protected final String description = "Egy rovid leiras.";
-    protected final String name = "Nev";
-    protected final String message = "Egy rovid uzenet.";
-    protected final String empty = "";
     protected ArticlePage articles;
     protected ContactPage contact;
     protected LandingPage landing;
     protected RegLogPage regLog;
+    protected ProfilePage profile;
     protected Utils utils;
     @BeforeEach
     public void setup(){
@@ -52,6 +37,7 @@ public class TestBase {
         articles = new ArticlePage(driver);
         contact = new ContactPage(driver);
         landing = new LandingPage(driver);
+        profile = new ProfilePage(driver);
         regLog = new RegLogPage(driver);
         utils = new Utils(driver);
     }

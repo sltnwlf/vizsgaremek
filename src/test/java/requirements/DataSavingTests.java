@@ -1,20 +1,27 @@
 package requirements;
 
 import base.TestBase;
+import base.TestDataCollection;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class DataSavingIntoFileTests extends TestBase {
+public class DataSavingTests extends TestBase {
 
-    @RepeatedTest(3)
+    @RepeatedTest(2)
     @DisplayName("TC30")
-    @Severity(SeverityLevel.NORMAL)
-    public void DataSavingIntoFile() {
+    @Severity(SeverityLevel.CRITICAL)
+    public void DataSavingIntoFileOnArticleTitles() {
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationAndLogin(username,password,emailValid,description,username,password);
+        regLog.registrationAndLogin(
+                TestDataCollection.username,
+                TestDataCollection.password,
+                TestDataCollection.emailValid,
+                TestDataCollection.description,
+                TestDataCollection.username,
+                TestDataCollection.password);
         landing.clickOnSeeAllPostButton();
         articles.savingPostTitlesIntoFile();
         String[] actual = utils.readFromFile("PostTitles.txt");
