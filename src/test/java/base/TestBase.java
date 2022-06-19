@@ -9,19 +9,16 @@ import pages.ArticlePage;
 import pages.ContactPage;
 import pages.LandingPage;
 import pages.RegLogPage;
+import utils.Utils;
 
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
     protected WebDriver driver;
-    protected RegLogPage regLog;
-    protected LandingPage landing;
-    protected ArticlePage articles;
-    protected ContactPage contact;
     protected final String username = "Felhasznalonev";
-    protected final String usernameForLoginAssertion = "Felhasznalonev03";
+    protected final String aUsernameFromDatasource = "Felhasznalonev03";
     protected final String password = "Jelszo01";
-    protected final String passwordForLoginAssertion = "Jelszo03";
+    protected final String aPasswordFromDatasource = "Jelszo03";
     protected final String emailValid = "teszt@email.hu";
     protected final String emailNothingAfterAtSign = "teszt@";
     protected final String emailNothingBeforeAtSign = "@email.hu";
@@ -31,6 +28,11 @@ public class TestBase {
     protected final String name = "Nev";
     protected final String message = "Egy rovid uzenet.";
     protected final String empty = "";
+    protected ArticlePage articles;
+    protected ContactPage contact;
+    protected LandingPage landing;
+    //protected RegLogPage regLog;
+    protected Utils utils;
 
     @BeforeEach
     public void setup(){
@@ -48,15 +50,16 @@ public class TestBase {
         driver.navigate().to("https://lennertamas.github.io/portio/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        regLog = new RegLogPage(driver);
+        //regLog = new RegLogPage(driver);
         landing = new LandingPage(driver);
         articles = new ArticlePage(driver);
         contact = new ContactPage(driver);
+        utils = new Utils(driver);
     }
-
     @AfterEach
     public void dispose(){
         driver.manage().deleteAllCookies();
         driver.quit();
     }
+
 }

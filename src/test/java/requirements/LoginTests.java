@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 
 public class LoginTests extends TestBase {
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC11")
     @Severity(SeverityLevel.CRITICAL)
     public void testLoginEverythingIsFilled() {
@@ -16,7 +16,7 @@ public class LoginTests extends TestBase {
         boolean actual = regLog.isThereLoginWindow();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC12")
     @Severity(SeverityLevel.CRITICAL)
     public void testLoginUsernameIsEmpty() {
@@ -25,7 +25,7 @@ public class LoginTests extends TestBase {
         boolean actual = regLog.isThereLoginWindow();
         Assertions.assertTrue(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC13")
     @Severity(SeverityLevel.CRITICAL)
     public void testLoginPasswordIsEmpty() {
@@ -34,7 +34,7 @@ public class LoginTests extends TestBase {
         boolean actual = regLog.isThereLoginWindow();
         Assertions.assertTrue(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC14")
     @Severity(SeverityLevel.CRITICAL)
     public void testLoginPasswordIsUnregistered() {
@@ -43,7 +43,7 @@ public class LoginTests extends TestBase {
         boolean actual = regLog.isThereLoginWindow();
         Assertions.assertTrue(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC15")
     @Severity(SeverityLevel.CRITICAL)
     public void testLoginUsernameIsUnregistered() {

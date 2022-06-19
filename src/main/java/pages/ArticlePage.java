@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -43,7 +46,7 @@ public class ArticlePage {
             driver.findElement(nextButton).click();
         }
     }
-    public String[] listPostTitles() {
+    public String[] listPostTitlesOnFirstPage() {
         List<WebElement> postLinkList = driver.findElements(postLinks);
         String[] titleList = new String[postLinkList.size()];
         for (int i = 0; i < postLinkList.size(); i++) {
@@ -62,6 +65,38 @@ public class ArticlePage {
             clickOnNextButton();
         }
         return actual;
+    }
+
+    public ArrayList<String> listPostTitlesOnAllPage() {
+        List<WebElement> postLinkList;
+        ArrayList<String> titleList = new ArrayList<>();
+        while (isThereNextButton()) {
+            postLinkList = driver.findElements(postLinks);
+            for (WebElement postLink : postLinkList) {
+                titleList.add(postLink.getText());
+            }
+            clickOnNextButton();
+        }
+        postLinkList = driver.findElements(postLinks);
+        for (WebElement postLink : postLinkList) {
+            titleList.add(postLink.getText());
+        }
+        return titleList;
+    }
+    public void savingPostTitlesIntoFile() {
+        try {
+            FileWriter writer = new FileWriter("PostTitles.txt");
+            BufferedWriter out = new BufferedWriter(writer);
+            ArrayList<String> postTitles = listPostTitlesOnAllPage();
+            int i = 0;
+            while (i < postTitles.size()) {
+                out.write(postTitles.get(i) + "\n");
+                i++;
+            }
+            out.close();
+        } catch (Exception e){
+            System.err.println("Error: " + e.getMessage());
+        }
     }
 
 }

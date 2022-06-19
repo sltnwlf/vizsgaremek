@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 
 public class TermsAndConditionsTests extends TestBase {
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC01")
     @Severity(SeverityLevel.NORMAL)
     public void testAcceptTermsAndConditions(){
@@ -17,7 +17,7 @@ public class TermsAndConditionsTests extends TestBase {
         boolean actual = regLog.isThereTermsAndConditionsWindow();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC02")
     @Severity(SeverityLevel.NORMAL)
     public void testIgnoreTermsAndConditions() {

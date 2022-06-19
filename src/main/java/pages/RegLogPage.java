@@ -14,62 +14,47 @@ import java.util.ArrayList;
 public class RegLogPage {
     private final WebDriver driver;
     private WebDriverWait wait;
-    private final By acceptButton = By.xpath("//*[@id=\"terms-and-conditions-button\"]");
-    private final By closeButton = By.xpath("//*[@id=\"overlay\"]/div/div[1]");
-    private final By popupWindow = By.xpath("//*[@id=\"overlay\"]/div");
-    private final By registerTab = By.xpath("(//*[@id=\"register-form-button\"])[1]");
+    private final By acceptTermsAndConditionsButton = By.xpath("//*[@id=\"terms-and-conditions-button\"]");
+    private final By closeTermsAndConditionsButton = By.xpath("//*[@id=\"overlay\"]/div/div[1]");
+    private final By termsAndConditionsWindow = By.xpath("//*[@id=\"overlay\"]/div");
+    private final By registerFormButton = By.xpath("(//*[@id=\"register-form-button\"])[1]");
     private final By registerUsername = By.xpath("//*[@id=\"register-username\"]");
     private final By registerPassword = By.xpath("//*[@id=\"register-password\"]");
     private final By registerEmail = By.xpath("//*[@id=\"register-email\"]");
     private final By registerDescription = By.xpath("//*[@id=\"register-description\"]");
     private final By registerButton = By.xpath("//*[@id=\"register\"]/form/div[6]/button");
-    private final By registerAlertMessage = By.xpath("//*[@id=\"register-alert\"]");
-    private final By loginTab = By.xpath("//*[@id=\"register\"]/Button[@id=\"login-form-button\"]");
+    private final By registerAlert = By.xpath("//*[@id=\"register-alert\"]");
+    private final By loginFormButton = By.xpath("//*[@id=\"register\"]/Button[@id=\"login-form-button\"]");
     private final By loginUsername = By.xpath("//*[@id=\"email\"]");
     private final By loginPassword = By.xpath("//*[@id=\"password\"]");
     private final By loginButton = By.xpath("//*[@id=\"login\"]/form/div[4]/button");
-    private final By loginWindow = By.xpath("//*[@id=\"login\"]");
+    private final By regLogWindow = By.xpath("//*[@id=\"login\"]");
 
     public RegLogPage(WebDriver driver) {
         this.driver = driver;
     }
 
     public void clickOnTermsAndConditionsAccept() {
-        driver.findElement(acceptButton).click();
+        driver.findElement(acceptTermsAndConditionsButton).click();
     }
     public void clickOnTermsAndConditionsIgnore() {
-        driver.findElement(closeButton).click();
+        driver.findElement(closeTermsAndConditionsButton).click();
     }
     public boolean isThereTermsAndConditionsWindow() {
         try {
             wait = new WebDriverWait(driver, 2);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(popupWindow));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(termsAndConditionsWindow));
             return true;
         }
         catch (Exception e){
             return false;
         }
     }
-    public void clickOnRegisterTab() {
-        driver.findElement(registerTab).click();
-    }
-    public void fillRegisterUsername(String regUsername) {
-        driver.findElement(registerUsername).sendKeys(regUsername);
-    }
-    public void fillRegisterPassword(String regPassword) {
-        driver.findElement(registerPassword).sendKeys(regPassword);
-    }
-    public void fillRegisterEmail(String regEmail) {
-        driver.findElement(registerEmail).sendKeys(regEmail);
-    }
-    public void fillRegisterDescription(String regDescription) {
-        driver.findElement(registerDescription).sendKeys(regDescription);
-    }
     public void registration(String regUsername,
                              String regPassword,
                              String regEmail,
                              String regDescription) {
-        driver.findElement(registerTab).click();
+        driver.findElement(registerFormButton).click();
         driver.findElement(registerUsername).sendKeys(regUsername);
         driver.findElement(registerPassword).sendKeys(regPassword);
         driver.findElement(registerEmail).sendKeys(regEmail);
@@ -79,30 +64,23 @@ public class RegLogPage {
     public boolean isThereRegisterAlertMessage() {
         try {
             wait = new WebDriverWait(driver, 2);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(registerAlertMessage));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(registerAlert));
             return true;
         }
         catch (Exception e){
             return false;
         }
     }
-    public String getRegisterAlertMessage() {
-        return driver.findElement(registerAlertMessage).getText();
-    }
-    public void fillLoginUsername(String logUsername) {
-        driver.findElement(registerUsername).sendKeys(logUsername);
-    }
-    public void fillLoginPassword(String logPassword) {
-        driver.findElement(registerPassword).sendKeys(logPassword);
+    public String getRegisterAlert() {
+        return driver.findElement(registerAlert).getText();
     }
     public void clickOnLoginButton() {
         driver.findElement(loginButton).click();
     }
-    public LandingPage login(String logUsername, String logPassword) {
+    public void login(String logUsername, String logPassword) {
         driver.findElement(loginUsername).sendKeys(logUsername);
         driver.findElement(loginPassword).sendKeys(logPassword);
         driver.findElement(loginButton).click();
-        return new LandingPage(driver);
     }
     public LandingPage registrationAndLogin(String regUsername,
                                             String regPassword,
@@ -110,13 +88,13 @@ public class RegLogPage {
                                             String regDescription,
                                             String logUsername,
                                             String logPassword) {
-        driver.findElement(registerTab).click();
+        driver.findElement(registerFormButton).click();
         driver.findElement(registerUsername).sendKeys(regUsername);
         driver.findElement(registerPassword).sendKeys(regPassword);
         driver.findElement(registerEmail).sendKeys(regEmail);
         driver.findElement(registerDescription).sendKeys(regDescription);
         driver.findElement(registerButton).click();
-        driver.findElement(loginTab).click();
+        driver.findElement(loginFormButton).click();
         driver.findElement(loginUsername).sendKeys(logUsername);
         driver.findElement(loginPassword).sendKeys(logPassword);
         driver.findElement(loginButton).click();
@@ -125,7 +103,7 @@ public class RegLogPage {
     public boolean isThereLoginWindow() {
         try {
             wait = new WebDriverWait(driver, 2);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(loginWindow));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(regLogWindow));
             return true;
         }
         catch (Exception e){
@@ -136,65 +114,31 @@ public class RegLogPage {
         Utils u = new Utils(driver);
         BufferedReader reader;
         try {
+            reader = new BufferedReader(new FileReader("RegisterTestData.txt"));
+
             ArrayList<By> inputFieldList = new ArrayList<>();
             inputFieldList.add(registerUsername);
             inputFieldList.add(registerPassword);
             inputFieldList.add(registerEmail);
             inputFieldList.add(registerDescription);
 
-            reader = new BufferedReader(new FileReader("RegisterTestData.txt"));
-            String line = "";
             ArrayList<String> lineList = new ArrayList<>();
+            String line = "";
             while (line != null) {
                 line = reader.readLine();
                 lineList.add(line);
             }
-
             lineList.remove(lineList.size()-1);
-            int listLength = lineList.size();
+
             int i = 0;
-            while (i < listLength) {
-                driver.findElement(registerTab).click();
-                for (int j = 0; j < inputFieldList.size(); j++) {
-                    driver.findElement(inputFieldList.get(j)).sendKeys(lineList.get(i));
+            while (i < lineList.size()) {
+                driver.findElement(registerFormButton).click();
+                for (By by : inputFieldList) {
+                    driver.findElement(by).sendKeys(lineList.get(i));
                     i++;
                 }
                 driver.findElement(registerButton).click();
                 u.refresh();
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        u.refresh();
-    }
-    public void loginSequentiallyAndContinuouslyFromDatasource() {
-        Utils u = new Utils(driver);
-        BufferedReader reader;
-        try {
-            ArrayList<By> inputFieldList = new ArrayList<>();
-            inputFieldList.add(loginUsername);
-            inputFieldList.add(loginPassword);
-
-            reader = new BufferedReader(new FileReader("LoginTestData.txt"));
-            String line = "";
-            ArrayList<String> lineList = new ArrayList<>();
-            while (line != null) {
-                line = reader.readLine();
-                lineList.add(line);
-            }
-
-            lineList.remove(lineList.size()-1);
-            int listLength = lineList.size();
-            int i = 0;
-            while (i < listLength) {
-                for (int j = 0; j < inputFieldList.size(); j++) {
-                    driver.findElement(inputFieldList.get(j)).sendKeys(lineList.get(i));
-                    i++;
-                }
-                clickOnLoginButton();
-                LandingPage landPage = new LandingPage(driver);
-                landPage.clickOnLogoutButton();
             }
             reader.close();
         } catch (IOException e) {
@@ -206,27 +150,27 @@ public class RegLogPage {
         Utils u = new Utils(driver);
         BufferedReader registerReader;
         try {
+            registerReader = new BufferedReader(new FileReader("RegisterTestData.txt"));
+
             ArrayList<By> inputFieldList = new ArrayList<>();
             inputFieldList.add(registerUsername);
             inputFieldList.add(registerPassword);
             inputFieldList.add(registerEmail);
             inputFieldList.add(registerDescription);
 
-            registerReader = new BufferedReader(new FileReader("RegisterTestData.txt"));
-            String line = "";
             ArrayList<String> lineList = new ArrayList<>();
+            String line = "";
             while (line != null) {
                 line = registerReader.readLine();
                 lineList.add(line);
             }
-
             lineList.remove(lineList.size()-1);
-            int listLength = lineList.size();
+
             int i = 0;
-            while (i < listLength) {
-                driver.findElement(registerTab).click();
-                for (int j = 0; j < inputFieldList.size(); j++) {
-                    driver.findElement(inputFieldList.get(j)).sendKeys(lineList.get(i));
+            while (i < lineList.size()) {
+                driver.findElement(registerFormButton).click();
+                for (By by : inputFieldList) {
+                    driver.findElement(by).sendKeys(lineList.get(i));
                     i++;
                 }
                 driver.findElement(registerButton).click();
@@ -237,26 +181,27 @@ public class RegLogPage {
             e.printStackTrace();
         }
         u.refresh();
+
         BufferedReader loginReader;
         try {
+            loginReader = new BufferedReader(new FileReader("LoginTestData.txt"));
+
             ArrayList<By> inputFieldList = new ArrayList<>();
             inputFieldList.add(loginUsername);
             inputFieldList.add(loginPassword);
 
-            loginReader = new BufferedReader(new FileReader("LoginTestData.txt"));
-            String line = "";
             ArrayList<String> lineList = new ArrayList<>();
+            String line = "";
             while (line != null) {
                 line = loginReader.readLine();
                 lineList.add(line);
             }
-
             lineList.remove(lineList.size()-1);
-            int listLength = lineList.size();
+
             int i = 0;
-            while (i < listLength) {
-                for (int j = 0; j < inputFieldList.size(); j++) {
-                    driver.findElement(inputFieldList.get(j)).sendKeys(lineList.get(i));
+            while (i < lineList.size()) {
+                for (By by : inputFieldList) {
+                    driver.findElement(by).sendKeys(lineList.get(i));
                     i++;
                 }
                 clickOnLoginButton();

@@ -7,14 +7,14 @@ import org.junit.jupiter.api.*;
 
 public class DataListingTests extends TestBase {
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC18")
     @Severity(SeverityLevel.NORMAL)
     public void testDataListing() {
         regLog.clickOnTermsAndConditionsAccept();
         regLog.registrationAndLogin(username,password,emailValid,description,username,password);
         landing.clickOnSeeAllPostButton();
-        String[] actual = articles.listPostTitles();
+        String[] actual = articles.listPostTitlesOnFirstPage();
         String[] expected = {
                 "Markdown Formatting Demo",
                 "Designer Conference at Florida 2020",

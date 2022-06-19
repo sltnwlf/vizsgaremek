@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 
 public class LogoutTests extends TestBase {
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC16")
     @Severity(SeverityLevel.CRITICAL)
     public void testLogoutWithLogoutButton(){

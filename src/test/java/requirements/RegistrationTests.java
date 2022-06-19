@@ -7,37 +7,37 @@ import org.junit.jupiter.api.*;
 
 public class RegistrationTests extends TestBase {
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC03")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationEverythingIsFilled(){
         regLog.clickOnTermsAndConditionsAccept();
         regLog.registration(username,password,emailValid,description);
-        String actual = regLog.getRegisterAlertMessage();
+        String actual = regLog.getRegisterAlert();
         String expected = "User registered!";
         Assertions.assertEquals(expected, actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC04")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationDescriptionIsEmpty(){
         regLog.clickOnTermsAndConditionsAccept();
         regLog.registration(username,password,emailValid,empty);
-        String actual = regLog.getRegisterAlertMessage();
+        String actual = regLog.getRegisterAlert();
         String expected = "User registered!";
         Assertions.assertEquals(expected, actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC05")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationEmailAndDescriptionAreEmpty(){
         regLog.clickOnTermsAndConditionsAccept();
         regLog.registration(username,password,empty,empty);
-        String actual = regLog.getRegisterAlertMessage();
+        String actual = regLog.getRegisterAlert();
         String expected = "User registered!";
         Assertions.assertEquals(expected, actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC06")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationEmailWithoutAtSign(){
@@ -46,7 +46,7 @@ public class RegistrationTests extends TestBase {
         boolean actual = regLog.isThereRegisterAlertMessage();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC07")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationEmailWithoutDot(){
@@ -55,7 +55,7 @@ public class RegistrationTests extends TestBase {
         boolean actual = regLog.isThereRegisterAlertMessage();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC08")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationPasswordIsEmpty(){
@@ -64,7 +64,7 @@ public class RegistrationTests extends TestBase {
         boolean actual = regLog.isThereRegisterAlertMessage();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC09")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationUsernameIsEmpty(){
@@ -73,7 +73,7 @@ public class RegistrationTests extends TestBase {
         boolean actual = regLog.isThereRegisterAlertMessage();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC10")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationEverythingIsEmpty(){

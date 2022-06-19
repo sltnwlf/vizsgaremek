@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 
 public class DataInputTests extends TestBase {
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC19")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEverythingIsFilled() {
@@ -20,8 +20,7 @@ public class DataInputTests extends TestBase {
         boolean actual = contact.isThereStatusMessage();
         Assertions.assertTrue(actual);
     }
-
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC20")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputMessageEmpty() {
@@ -34,8 +33,7 @@ public class DataInputTests extends TestBase {
         boolean actual = contact.isThereStatusMessage();
         Assertions.assertTrue(actual);
     }
-
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC21")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputCheckboxEmpty() {
@@ -47,8 +45,7 @@ public class DataInputTests extends TestBase {
         boolean actual = contact.isThereStatusMessage();
         Assertions.assertFalse(actual);
     }
-
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC22")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailEmpty() {
@@ -62,7 +59,7 @@ public class DataInputTests extends TestBase {
         Assertions.assertFalse(actual);
     }
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC23")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailWithoutAtSign(){
@@ -76,7 +73,7 @@ public class DataInputTests extends TestBase {
         Assertions.assertFalse(actual);
     }
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC24")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailNothingAfterAtSign() {
@@ -90,7 +87,7 @@ public class DataInputTests extends TestBase {
         Assertions.assertFalse(actual);
     }
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC25")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailNothingBeforeAtSign() {
@@ -104,7 +101,7 @@ public class DataInputTests extends TestBase {
         Assertions.assertFalse(actual);
     }
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC26")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailWithoutDot() {
@@ -118,7 +115,7 @@ public class DataInputTests extends TestBase {
         Assertions.assertFalse(actual);
     }
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC27")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputNameEmpty() {

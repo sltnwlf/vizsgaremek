@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 
 public class PaginationTests extends TestBase {
 
-    @RepeatedTest(2)
+    @RepeatedTest(3)
     @DisplayName("TC17")
     @Severity(SeverityLevel.NORMAL)
     public void testPagination() {
