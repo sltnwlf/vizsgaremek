@@ -31,9 +31,8 @@ public class TestBase {
     protected ArticlePage articles;
     protected ContactPage contact;
     protected LandingPage landing;
-    //protected RegLogPage regLog;
+    protected RegLogPage regLog;
     protected Utils utils;
-
     @BeforeEach
     public void setup(){
         WebDriverManager.chromedriver().setup();
@@ -50,10 +49,10 @@ public class TestBase {
         driver.navigate().to("https://lennertamas.github.io/portio/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        //regLog = new RegLogPage(driver);
-        landing = new LandingPage(driver);
         articles = new ArticlePage(driver);
         contact = new ContactPage(driver);
+        landing = new LandingPage(driver);
+        regLog = new RegLogPage(driver);
         utils = new Utils(driver);
     }
     @AfterEach
