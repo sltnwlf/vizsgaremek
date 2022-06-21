@@ -114,7 +114,7 @@ public class RegLogPage {
         Utils u = new Utils(driver);
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("RegisterTestData.txt"));
+            reader = new BufferedReader(new FileReader("RegTestData.txt"));
 
             ArrayList<By> inputFieldList = new ArrayList<>();
             inputFieldList.add(registerUsername);
@@ -150,7 +150,7 @@ public class RegLogPage {
         Utils u = new Utils(driver);
         BufferedReader registerReader;
         try {
-            registerReader = new BufferedReader(new FileReader("RegisterTestData.txt"));
+            registerReader = new BufferedReader(new FileReader("RegTestData.txt"));
 
             ArrayList<By> inputFieldList = new ArrayList<>();
             inputFieldList.add(registerUsername);
@@ -184,7 +184,7 @@ public class RegLogPage {
 
         BufferedReader loginReader;
         try {
-            loginReader = new BufferedReader(new FileReader("LoginTestData.txt"));
+            loginReader = new BufferedReader(new FileReader("LogTestData.txt"));
 
             ArrayList<By> inputFieldList = new ArrayList<>();
             inputFieldList.add(loginUsername);
