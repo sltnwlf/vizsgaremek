@@ -40,5 +40,4 @@ public class DataModifyTests extends TestBase {
         boolean isTrue = cookies1 == cookies2;
         Assertions.assertFalse(isTrue);
     }
-
 }

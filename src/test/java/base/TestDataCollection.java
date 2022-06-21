@@ -21,5 +21,4 @@ public class TestDataCollection {
     public final static String name = "Nev";
     public final static String message = "Egy rovid uzenet.";
     public final static String empty = "";
-
 }

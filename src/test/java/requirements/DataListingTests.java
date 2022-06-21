@@ -10,7 +10,7 @@ public class DataListingTests extends TestBase {
 
     @RepeatedTest(2)
     @DisplayName("TC18")
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.CRITICAL)
     public void testDataListingOnFirstArticlePage() {
         regLog.clickOnTermsAndConditionsAccept();
         regLog.registrationAndLogin(

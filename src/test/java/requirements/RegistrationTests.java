@@ -115,5 +115,4 @@ public class RegistrationTests extends TestBase {
         boolean actual = regLog.isThereRegisterAlertMessage();
         Assertions.assertFalse(actual);
     }
-
 }

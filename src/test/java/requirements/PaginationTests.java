@@ -25,5 +25,4 @@ public class PaginationTests extends TestBase {
         int actual = articles.postCounter();
         Assertions.assertEquals(expected, actual);
     }
-
 }

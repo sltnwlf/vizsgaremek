@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class ProfilePage {
+
     protected WebDriver driver;
     private final By nameInput = By.xpath("//*[@id=\"name\"]");
     private final By bioInput = By.xpath("//*[@id=\"bio\"]");

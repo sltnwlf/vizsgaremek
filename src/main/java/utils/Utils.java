@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class Utils {
+
     protected WebDriver driver;
 
     public Utils(WebDriver driver) {

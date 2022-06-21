@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LandingPage {
+
     private final WebDriver driver;
     private final By seeAllPostButton = By.xpath("//*[@id=\"blog\"]/div[2]/div[1]/div[2]/div/a");
     private final By logoutButton = By.xpath("//*[@id=\"logout-link\"]/a");

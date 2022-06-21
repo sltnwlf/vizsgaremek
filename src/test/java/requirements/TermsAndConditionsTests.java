@@ -40,5 +40,4 @@ public class TermsAndConditionsTests extends TestBase {
         boolean actual = regLog.isThereTermsAndConditionsWindow();
         Assertions.assertTrue(actual);
     }
-
 }

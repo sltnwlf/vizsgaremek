@@ -32,7 +32,6 @@ public class DataDeleteTests extends TestBase {
         profile.deleteAccount();
         int numberOfCookies2 = utils.getCookies().size();
         boolean isTrue = numberOfCookies1 == numberOfCookies2;
-        System.out.println(isTrue);
         Assertions.assertFalse(isTrue);
     }
 

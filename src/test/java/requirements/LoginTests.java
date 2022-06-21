@@ -83,5 +83,4 @@ public class LoginTests extends TestBase {
         boolean actual = regLog.isThereLoginWindow();
         Assertions.assertTrue(actual);
     }
-
 }

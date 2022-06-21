@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ArticlePage {
+
     private final WebDriver driver;
     private final By posts = By.xpath("//*[@id=\"content\"]/section/div/div/div");
     private final By nextButton = By.xpath("//*[@id=\"content\"]/section/div/div/nav/ul/li[3]/a");

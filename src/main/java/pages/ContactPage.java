@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ContactPage {
+
     private final WebDriver driver;
     private final By nameInput = By.xpath("//*[@id=\"contact-form\"]/div[1]/div[1]/input");
     private final By emailInput = By.xpath("//*[@id=\"contact-form\"]/div[1]/div[2]/input");

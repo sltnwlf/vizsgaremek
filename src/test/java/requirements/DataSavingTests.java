@@ -37,5 +37,4 @@ public class DataSavingTests extends TestBase {
                 "You must know this before becoming a designer"};
         Assertions.assertArrayEquals(expected,actual);
     }
-
 }

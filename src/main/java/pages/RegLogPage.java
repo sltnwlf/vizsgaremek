@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class RegLogPage {
+
     private final WebDriver driver;
     private WebDriverWait wait;
     private final By acceptTermsAndConditionsButton = By.xpath("//*[@id=\"terms-and-conditions-button\"]");

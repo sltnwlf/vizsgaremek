@@ -2,6 +2,7 @@ package requirements;
 
 import base.TestBase;
 import base.TestDataCollection;
+import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.*;
@@ -163,6 +164,7 @@ public class DataInputTests extends TestBase {
     }
     @RepeatedTest(2)
     @DisplayName("TC26")
+    @Description("Description") // manuális tesztbe is beírni mint név?? Tomi mondta
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailWithoutDot() {
         regLog.clickOnTermsAndConditionsAccept();

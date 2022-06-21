@@ -36,5 +36,4 @@ public class DataInputRepeatedlyAndContinuouslyFromDatasourceTests extends TestB
         boolean logActual = regLog.isThereLoginWindow();
         Assertions.assertFalse(logActual);
     }
-
 }
