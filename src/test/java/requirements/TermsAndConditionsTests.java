@@ -2,42 +2,48 @@ package requirements;
 
 import base.TestBase;
 import base.TestDataCollection;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 public class TermsAndConditionsTests extends TestBase {
 
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Terms and conditions tests")
+    @Description("Accept test")
     @DisplayName("TC01")
     @Severity(SeverityLevel.CRITICAL)
     public void testAcceptTermsAndConditions(){
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationAndLogin(
-                TestDataCollection.username,
-                TestDataCollection.password,
+        regLog.regLog(
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword,
                 TestDataCollection.empty,
                 TestDataCollection.empty,
-                TestDataCollection.username,
-                TestDataCollection.password);
-        landing.clickOnLogoutButton();
-        boolean actual = regLog.isThereTermsAndConditionsWindow();
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword);
+        landing.clickOnLogout();
+        boolean actual = regLog.isThereTermsAndConditionsPopup();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Terms and conditions tests")
+    @Description("Close test")
     @DisplayName("TC02")
     @Severity(SeverityLevel.CRITICAL)
-    public void testIgnoreTermsAndConditions() {
-        regLog.clickOnTermsAndConditionsIgnore();
-        regLog.registrationAndLogin(
-                TestDataCollection.username,
-                TestDataCollection.password,
+    public void testCloseTermsAndConditions() {
+        regLog.clickOnTermsAndConditionsClose();
+        regLog.regLog(
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword,
                 TestDataCollection.empty,
                 TestDataCollection.empty,
-                TestDataCollection.username,
-                TestDataCollection.password);
-        landing.clickOnLogoutButton();
-        boolean actual = regLog.isThereTermsAndConditionsWindow();
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword);
+        landing.clickOnLogout();
+        boolean actual = regLog.isThereTermsAndConditionsPopup();
         Assertions.assertTrue(actual);
     }
+
 }

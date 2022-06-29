@@ -2,209 +2,233 @@ package requirements;
 
 import base.TestBase;
 import base.TestDataCollection;
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 public class DataInputTests extends TestBase {
 
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Data input tests")
+    @Description("Everything is filled test")
     @DisplayName("TC19")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEverythingIsFilled() {
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationAndLogin(
-                TestDataCollection.username,
-                TestDataCollection.password,
-                TestDataCollection.emailValid,
-                TestDataCollection.description,
-                TestDataCollection.username,
-                TestDataCollection.password);
-        landing.clickOnGetInTouchButton();
+        regLog.regLog(
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword,
+                TestDataCollection.email,
+                TestDataCollection.regLogDescription,
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword);
+        landing.clickOnGetInTouch();
         contact.fillForm(
-                TestDataCollection.name,
-                TestDataCollection.emailValid,
-                TestDataCollection.message);
+                TestDataCollection.contactName,
+                TestDataCollection.email,
+                TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
-        contact.clickOnSendButton();
-        boolean actual = contact.isThereStatusMessage();
+        contact.clickOnSend();
+        boolean actual = contact.isThereStatus();
         Assertions.assertTrue(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Data input tests")
+    @Description("Message is empty test")
     @DisplayName("TC20")
     @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputMessageEmpty() {
+    public void testDataInputMessageIsEmpty() {
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationAndLogin(
-                TestDataCollection.username,
-                TestDataCollection.password,
-                TestDataCollection.emailValid,
-                TestDataCollection.description,
-                TestDataCollection.username,
-                TestDataCollection.password);
-        landing.clickOnGetInTouchButton();
+        regLog.regLog(
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword,
+                TestDataCollection.email,
+                TestDataCollection.regLogDescription,
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword);
+        landing.clickOnGetInTouch();
         contact.fillForm(
-                TestDataCollection.name,
-                TestDataCollection.emailValid,
+                TestDataCollection.contactName,
+                TestDataCollection.email,
                 TestDataCollection.empty);
         contact.clickOnCheckbox();
-        contact.clickOnSendButton();
-        boolean actual = contact.isThereStatusMessage();
+        contact.clickOnSend();
+        boolean actual = contact.isThereStatus();
         Assertions.assertTrue(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Data input tests")
+    @Description("Checkbox is empty test")
     @DisplayName("TC21")
     @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputCheckboxEmpty() {
+    public void testDataInputCheckboxIsEmpty() {
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationAndLogin(
-                TestDataCollection.username,
-                TestDataCollection.password,
-                TestDataCollection.emailValid,
-                TestDataCollection.description,
-                TestDataCollection.username,
-                TestDataCollection.password);
-        landing.clickOnGetInTouchButton();
+        regLog.regLog(
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword,
+                TestDataCollection.email,
+                TestDataCollection.regLogDescription,
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword);
+        landing.clickOnGetInTouch();
         contact.fillForm(
-                TestDataCollection.name,
-                TestDataCollection.emailValid,
-                TestDataCollection.message);
-        contact.clickOnSendButton();
-        boolean actual = contact.isThereStatusMessage();
+                TestDataCollection.contactName,
+                TestDataCollection.email,
+                TestDataCollection.contactMessage);
+        contact.clickOnSend();
+        boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Data input tests")
+    @Description("Email is empty test")
     @DisplayName("TC22")
     @Severity(SeverityLevel.CRITICAL)
-    public void testDataInputEmailEmpty() {
+    public void testDataInputEmailIsEmpty() {
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationAndLogin(
-                TestDataCollection.username,
-                TestDataCollection.password,
-                TestDataCollection.emailValid,
-                TestDataCollection.description,
-                TestDataCollection.username,
-                TestDataCollection.password);
-        landing.clickOnGetInTouchButton();
+        regLog.regLog(
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword,
+                TestDataCollection.email,
+                TestDataCollection.regLogDescription,
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword);
+        landing.clickOnGetInTouch();
         contact.fillForm(
-                TestDataCollection.name,
+                TestDataCollection.contactName,
                 TestDataCollection.empty,
-                TestDataCollection.message);
+                TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
-        contact.clickOnSendButton();
-        boolean actual = contact.isThereStatusMessage();
+        contact.clickOnSend();
+        boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Data input tests")
+    @Description("Email without at test")
     @DisplayName("TC23")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailWithoutAt(){
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationAndLogin(
-                TestDataCollection.username,
-                TestDataCollection.password,
-                TestDataCollection.emailValid,
-                TestDataCollection.description,
-                TestDataCollection.username,
-                TestDataCollection.password);
-        landing.clickOnGetInTouchButton();
+        regLog.regLog(
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword,
+                TestDataCollection.email,
+                TestDataCollection.regLogDescription,
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword);
+        landing.clickOnGetInTouch();
         contact.fillForm(
-                TestDataCollection.name,
+                TestDataCollection.contactName,
                 TestDataCollection.emailWithoutAt,
-                TestDataCollection.message);
+                TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
-        contact.clickOnSendButton();
-        boolean actual = contact.isThereStatusMessage();
+        contact.clickOnSend();
+        boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Data input tests")
+    @Description("Email, nothing after at test")
     @DisplayName("TC24")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailNothingAfterAt() {
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationAndLogin(
-                TestDataCollection.username,
-                TestDataCollection.password,
-                TestDataCollection.emailValid,
-                TestDataCollection.description,
-                TestDataCollection.username,
-                TestDataCollection.password);
-        landing.clickOnGetInTouchButton();
+        regLog.regLog(
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword,
+                TestDataCollection.email,
+                TestDataCollection.regLogDescription,
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword);
+        landing.clickOnGetInTouch();
         contact.fillForm(
-                TestDataCollection.name,
+                TestDataCollection.contactName,
                 TestDataCollection.emailNothingAfterAt,
-                TestDataCollection.message);
+                TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
-        contact.clickOnSendButton();
-        boolean actual = contact.isThereStatusMessage();
+        contact.clickOnSend();
+        boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Data input tests")
+    @Description("Email, nothing before at test")
     @DisplayName("TC25")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailNothingBeforeAt() {
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationAndLogin(
-                TestDataCollection.username,
-                TestDataCollection.password,
-                TestDataCollection.emailValid,
-                TestDataCollection.description,
-                TestDataCollection.username,
-                TestDataCollection.password);
-        landing.clickOnGetInTouchButton();
+        regLog.regLog(
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword,
+                TestDataCollection.email,
+                TestDataCollection.regLogDescription,
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword);
+        landing.clickOnGetInTouch();
         contact.fillForm(
-                TestDataCollection.name,
+                TestDataCollection.contactName,
                 TestDataCollection.emailNothingBeforeAt,
-                TestDataCollection.message);
+                TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
-        contact.clickOnSendButton();
-        boolean actual = contact.isThereStatusMessage();
+        contact.clickOnSend();
+        boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Data input tests")
+    @Description("Email without dot test")
     @DisplayName("TC26")
-    @Description("Description") // manuális tesztbe is beírni mint név?? Tomi mondta
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailWithoutDot() {
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationAndLogin(
-                TestDataCollection.username,
-                TestDataCollection.password,
-                TestDataCollection.emailValid,
-                TestDataCollection.description,
-                TestDataCollection.username,
-                TestDataCollection.password);
-        landing.clickOnGetInTouchButton();
+        regLog.regLog(
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword,
+                TestDataCollection.email,
+                TestDataCollection.regLogDescription,
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword);
+        landing.clickOnGetInTouch();
         contact.fillForm(
-                TestDataCollection.name,
+                TestDataCollection.contactName,
                 TestDataCollection.emailWithoutDot,
-                TestDataCollection.message);
+                TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
-        contact.clickOnSendButton();
-        boolean actual = contact.isThereStatusMessage();
+        contact.clickOnSend();
+        boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Data input tests")
+    @Description("Name is empty test")
     @DisplayName("TC27")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputNameEmpty() {
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationAndLogin(
-                TestDataCollection.username,
-                TestDataCollection.password,
-                TestDataCollection.emailValid,
-                TestDataCollection.description,
-                TestDataCollection.username,
-                TestDataCollection.password);
-        landing.clickOnGetInTouchButton();
+        regLog.regLog(
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword,
+                TestDataCollection.email,
+                TestDataCollection.regLogDescription,
+                TestDataCollection.regLogUsername,
+                TestDataCollection.regLogPassword);
+        landing.clickOnGetInTouch();
         contact.fillForm(
                 TestDataCollection.empty,
-                TestDataCollection.emailValid,
-                TestDataCollection.message);
+                TestDataCollection.email,
+                TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
-        contact.clickOnSendButton();
-        boolean actual = contact.isThereStatusMessage();
+        contact.clickOnSend();
+        boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
 

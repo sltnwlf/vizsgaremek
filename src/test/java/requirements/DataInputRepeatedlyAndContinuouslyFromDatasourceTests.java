@@ -2,8 +2,7 @@ package requirements;
 
 import base.TestBase;
 import base.TestDataCollection;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,27 +12,33 @@ import java.util.Set;
 
 public class DataInputRepeatedlyAndContinuouslyFromDatasourceTests extends TestBase {
 
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Data input repeatedly and continuously from datasource tests")
+    @Description("Data input on registration repeatedly and continuously from datasource test")
     @DisplayName("TC28")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputOnRegistrationRepeatedlyAndContinuouslyFromDatasource() {
         regLog.clickOnTermsAndConditionsAccept();
-        regLog.registrationSequentiallyAndContinuouslyFromDatasource();
+        regLog.registrationRepeatedlyAndContinuouslyFromDatasource();
         Set<Cookie> cookieSet = driver.manage().getCookies();
         int expected = 6;
         int actual = cookieSet.size();
         Assertions.assertEquals(expected,actual);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(1)
+    @Epic("Portio")
+    @Story("Data input repeatedly and continuously from datasource tests")
+    @Description("Data input on login repeatedly and continuously from datasource test")
     @DisplayName("TC29")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputOnLoginRepeatedlyAndContinuouslyFromDatasource() {
         regLog.clickOnTermsAndConditionsAccept();
         regLog.regLogRepeatedlyAndContinuouslyFromDatasource();
         regLog.login(
-                TestDataCollection.usernameTestDataFromFile,
-                TestDataCollection.passwordTestDataFromFile);
-        boolean logActual = regLog.isThereLoginWindow();
+                TestDataCollection.regLogUsernameFromFile,
+                TestDataCollection.regLogPasswordFromFile);
+        boolean logActual = regLog.isThereRegLogForm();
         Assertions.assertFalse(logActual);
     }
 }
