@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /***********************************************************************************************************************
                                 Általános felhasználásra készített metódusok osztálya.
@@ -36,10 +37,17 @@ public class Utils {
     }
 
     /*******************************************************************************************************************
-                                            Egyszerű, várakoztató metódus.
+                                      Egyszerű, Thread.sleep várakoztató metódus.
      ******************************************************************************************************************/
     public void sleep(int timeInMillis) throws InterruptedException {
         Thread.sleep(timeInMillis);
+    }
+
+    /*******************************************************************************************************************
+                                     Egyszerű, implicitlyWait várakoztató metódus.
+     ******************************************************************************************************************/
+    public void implicitlyWait(int timeInSeconds) {
+        driver.manage().timeouts().implicitlyWait(timeInSeconds,TimeUnit.SECONDS);
     }
 
     /*******************************************************************************************************************
@@ -50,7 +58,7 @@ public class Utils {
     }
 
     /*******************************************************************************************************************
-                       Egy viszonylag egyszerű screenshot készítő metódus az allure report-hoz.
+                               Egyszerű screenshot készítő metódus az allure report-hoz.
      ******************************************************************************************************************/
     public void makeScreenshot() {
         Allure.addAttachment("Screenshot of Tested Page", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
@@ -65,8 +73,11 @@ public class Utils {
         driver.switchTo().window(tabs.get(1));
     }
 
-    public void scrollDown200pixels() {
-        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,200)","");
+    /*******************************************************************************************************************
+                  A JavascriptExecutor segítségével a paraméterben megadott pixelnyit görgető metódus.
+     ******************************************************************************************************************/
+    public void scrollOnPage(int pixels) {
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,"+ pixels +")","");
     }
 
     /*******************************************************************************************************************

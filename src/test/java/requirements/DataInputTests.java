@@ -77,9 +77,6 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.email,
                 TestDataCollection.contactMessage);
         contact.clickOnSend();
-        utils.scrollDown200pixels();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
@@ -104,9 +101,6 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
-        utils.scrollDown200pixels();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
@@ -131,9 +125,6 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
-        utils.scrollDown200pixels();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
@@ -158,9 +149,6 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
-        utils.scrollDown200pixels();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
@@ -185,9 +173,6 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
-        utils.scrollDown200pixels();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
@@ -212,8 +197,8 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
-        utils.scrollDown200pixels();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        utils.scrollOnPage(200);
+        utils.implicitlyWait(3);
         utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
@@ -239,9 +224,6 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
-        utils.scrollDown200pixels();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
