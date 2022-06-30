@@ -65,6 +65,10 @@ public class Utils {
         driver.switchTo().window(tabs.get(1));
     }
 
+    public void scrollDown200pixels() {
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,200)","");
+    }
+
     /*******************************************************************************************************************
                     A JavascriptExecutor segítségével a megkeresett WebElement-hez görgető metódus.
                Egy kis korekcióra volt szükség, mivel felső menűsáv miatt kitakarta a kattintandó gombot,
