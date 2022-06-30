@@ -10,8 +10,7 @@ public class DataInputTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data input tests")
-    @Description("Everything is filled test")
-    @DisplayName("TC19")
+    @DisplayName("TC19, Everything is filled test")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEverythingIsFilled() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -35,8 +34,7 @@ public class DataInputTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data input tests")
-    @Description("Message is empty test")
-    @DisplayName("TC20")
+    @DisplayName("TC20, Message is empty test")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputMessageIsEmpty() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -60,8 +58,7 @@ public class DataInputTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data input tests")
-    @Description("Checkbox is empty test")
-    @DisplayName("TC21")
+    @DisplayName("TC21, Checkbox is empty test")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputCheckboxIsEmpty() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -78,14 +75,14 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.email,
                 TestDataCollection.contactMessage);
         contact.clickOnSend();
+        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data input tests")
-    @Description("Email is empty test")
-    @DisplayName("TC22")
+    @DisplayName("TC22, Email is empty test")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailIsEmpty() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -103,14 +100,14 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
+        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data input tests")
-    @Description("Email without at test")
-    @DisplayName("TC23")
+    @DisplayName("TC23, Email without at test")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailWithoutAt(){
         regLog.clickOnTermsAndConditionsAccept();
@@ -128,14 +125,14 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
+        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data input tests")
-    @Description("Email, nothing after at test")
-    @DisplayName("TC24")
+    @DisplayName("TC24, Email, nothing after at test")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailNothingAfterAt() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -153,14 +150,14 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
+        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data input tests")
-    @Description("Email, nothing before at test")
-    @DisplayName("TC25")
+    @DisplayName("TC25, Email, nothing before at test")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailNothingBeforeAt() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -178,14 +175,14 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
+        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data input tests")
-    @Description("Email without dot test")
-    @DisplayName("TC26")
+    @DisplayName("TC26, Email without dot test")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputEmailWithoutDot() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -203,14 +200,14 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
+        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data input tests")
-    @Description("Name is empty test")
-    @DisplayName("TC27")
+    @DisplayName("TC27, Name is empty test")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputNameEmpty() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -228,6 +225,7 @@ public class DataInputTests extends TestBase {
                 TestDataCollection.contactMessage);
         contact.clickOnCheckbox();
         contact.clickOnSend();
+        utils.makeScreenshot();
         boolean actual = contact.isThereStatus();
         Assertions.assertFalse(actual);
     }

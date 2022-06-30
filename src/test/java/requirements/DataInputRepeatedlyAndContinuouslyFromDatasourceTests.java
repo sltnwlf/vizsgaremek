@@ -15,8 +15,7 @@ public class DataInputRepeatedlyAndContinuouslyFromDatasourceTests extends TestB
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data input repeatedly and continuously from datasource tests")
-    @Description("Data input on registration repeatedly and continuously from datasource test")
-    @DisplayName("TC28")
+    @DisplayName("TC28, Data input on registration repeatedly and continuously from datasource test")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputOnRegistrationRepeatedlyAndContinuouslyFromDatasource() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -29,8 +28,7 @@ public class DataInputRepeatedlyAndContinuouslyFromDatasourceTests extends TestB
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data input repeatedly and continuously from datasource tests")
-    @Description("Data input on login repeatedly and continuously from datasource test")
-    @DisplayName("TC29")
+    @DisplayName("TC29, Data input on login repeatedly and continuously from datasource test")
     @Severity(SeverityLevel.CRITICAL)
     public void testDataInputOnLoginRepeatedlyAndContinuouslyFromDatasource() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -41,4 +39,5 @@ public class DataInputRepeatedlyAndContinuouslyFromDatasourceTests extends TestB
         boolean logActual = regLog.isThereRegLogForm();
         Assertions.assertFalse(logActual);
     }
+
 }

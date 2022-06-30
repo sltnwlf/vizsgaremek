@@ -61,7 +61,7 @@ public class Utils {
      ******************************************************************************************************************/
     public void createNewTab() {
         ((JavascriptExecutor) driver).executeScript("window.open()");
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
     }
 

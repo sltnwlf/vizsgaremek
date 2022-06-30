@@ -12,10 +12,9 @@ public class DataDeleteTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Data delete tests")
-    @Description("Profile data delete test")
-    @DisplayName("TC32")
+    @DisplayName("TC32, Delete account test")
     @Severity(SeverityLevel.CRITICAL)
-    public void testProfileDataDelete() {
+    public void testDataDeleteAccount() {
         regLog.clickOnTermsAndConditionsAccept();
         regLog.regLog(
                 TestDataCollection.regLogUsername,

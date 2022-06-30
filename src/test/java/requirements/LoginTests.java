@@ -10,8 +10,7 @@ public class LoginTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Login tests")
-    @Description("Everything is filled test")
-    @DisplayName("TC11")
+    @DisplayName("TC11, Everything is filled test")
     @Severity(SeverityLevel.CRITICAL)
     public void testLoginEverythingIsFilled() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -28,8 +27,7 @@ public class LoginTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Login tests")
-    @Description("Username is empty test")
-    @DisplayName("TC12")
+    @DisplayName("TC12, Username is empty test")
     @Severity(SeverityLevel.CRITICAL)
     public void testLoginUsernameIsEmpty() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -46,8 +44,7 @@ public class LoginTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Login tests")
-    @Description("Password is empty test")
-    @DisplayName("TC13")
+    @DisplayName("TC13, Password is empty test")
     @Severity(SeverityLevel.CRITICAL)
     public void testLoginPasswordIsEmpty() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -64,8 +61,7 @@ public class LoginTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Login tests")
-    @Description("Password is unregistered test")
-    @DisplayName("TC14")
+    @DisplayName("TC14, Password is unregistered test")
     @Severity(SeverityLevel.CRITICAL)
     public void testLoginPasswordIsUnregistered() {
         regLog.clickOnTermsAndConditionsAccept();
@@ -82,8 +78,7 @@ public class LoginTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Login tests")
-    @Description("Username is unregistered test")
-    @DisplayName("TC15")
+    @DisplayName("TC15, Username is unregistered test")
     @Severity(SeverityLevel.CRITICAL)
     public void testLoginUsernameIsUnregistered() {
         regLog.clickOnTermsAndConditionsAccept();

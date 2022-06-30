@@ -10,8 +10,7 @@ public class PaginationTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Pagination tests")
-    @Description("Pagination on blog page test")
-    @DisplayName("TC17")
+    @DisplayName("TC17, Pagination on blog page test")
     @Severity(SeverityLevel.CRITICAL)
     public void testPaginationOnBlogPage() {
         regLog.clickOnTermsAndConditionsAccept();

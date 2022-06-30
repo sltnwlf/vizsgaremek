@@ -71,13 +71,11 @@ public class TestBase {
 
     /*******************************************************************************************************************
                       Az @AfterEach annotációnak köszönhetően, minden egyes teszt után lefut.
-     * A makeScreenshot() minden tesztről képernyőfotót készít (!!! ELVILEG !!! MEGKÉRDEZNI HA NEM JÖVÖK RÁ !!!)
                     A deleteAllCookies() töröl minden, a teszt során létrehozott tárolt adatot.
                           A quit() bezárja az összes, a teszt során megnyitott ablakot.
      ******************************************************************************************************************/
     @AfterEach
     public void dispose(){
-        utils.makeScreenshot();
         driver.manage().deleteAllCookies();
         driver.quit();
     }

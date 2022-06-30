@@ -10,10 +10,9 @@ public class LogoutTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Logout tests")
-    @Description("Logout twice on different tabs with logout button test")
-    @DisplayName("TC16")
+    @DisplayName("TC16, Double logout on different tabs with logout button test")
     @Severity(SeverityLevel.CRITICAL)
-    public void testLogoutTwiceOnDifferentTabsWithLogoutButton() throws InterruptedException {
+    public void testDoubleLogoutOnDifferentTabsWithLogoutButton() throws InterruptedException {
         regLog.clickOnTermsAndConditionsAccept();
         regLog.regLog(
                 TestDataCollection.regLogUsername,

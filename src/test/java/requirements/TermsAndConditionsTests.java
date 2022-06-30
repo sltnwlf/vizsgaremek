@@ -10,10 +10,9 @@ public class TermsAndConditionsTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Terms and conditions tests")
-    @Description("Accept test")
-    @DisplayName("TC01")
+    @DisplayName("TC01, Accept test")
     @Severity(SeverityLevel.CRITICAL)
-    public void testAcceptTermsAndConditions(){
+    public void testTermsAndConditionsAccept(){
         regLog.clickOnTermsAndConditionsAccept();
         regLog.regLog(
                 TestDataCollection.regLogUsername,
@@ -29,10 +28,9 @@ public class TermsAndConditionsTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Terms and conditions tests")
-    @Description("Close test")
-    @DisplayName("TC02")
+    @DisplayName("TC02, Close test")
     @Severity(SeverityLevel.CRITICAL)
-    public void testCloseTermsAndConditions() {
+    public void testTermsAndConditionsClose() {
         regLog.clickOnTermsAndConditionsClose();
         regLog.regLog(
                 TestDataCollection.regLogUsername,

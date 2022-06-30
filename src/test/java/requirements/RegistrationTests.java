@@ -10,8 +10,7 @@ public class RegistrationTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Registration tests")
-    @Description("Everything is filled test")
-    @DisplayName("TC03")
+    @DisplayName("TC03, Everything is filled test")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationEverythingIsFilled(){
         regLog.clickOnTermsAndConditionsAccept();
@@ -27,8 +26,7 @@ public class RegistrationTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Registration tests")
-    @Description("Description is empty test")
-    @DisplayName("TC04")
+    @DisplayName("TC04, Description is empty test")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationDescriptionIsEmpty(){
         regLog.clickOnTermsAndConditionsAccept();
@@ -44,8 +42,7 @@ public class RegistrationTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Registration tests")
-    @Description("Email and description are empty test")
-    @DisplayName("TC05")
+    @DisplayName("TC05, Email and description are empty test")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationEmailAndDescriptionAreEmpty(){
         regLog.clickOnTermsAndConditionsAccept();
@@ -61,8 +58,7 @@ public class RegistrationTests extends TestBase {
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Registration tests")
-    @Description("Email without at test")
-    @DisplayName("TC06")
+    @DisplayName("TC06, Email without at test")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationEmailWithoutAt(){
         regLog.clickOnTermsAndConditionsAccept();
@@ -71,14 +67,14 @@ public class RegistrationTests extends TestBase {
                 TestDataCollection.regLogPassword,
                 TestDataCollection.emailWithoutAt,
                 TestDataCollection.regLogDescription);
+        utils.makeScreenshot();
         boolean actual = regLog.isThereRegisterStatus();
         Assertions.assertFalse(actual);
     }
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Registration tests")
-    @Description("Email without dot test")
-    @DisplayName("TC07")
+    @DisplayName("TC07, Email without dot test")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationEmailWithoutDot(){
         regLog.clickOnTermsAndConditionsAccept();
@@ -87,14 +83,14 @@ public class RegistrationTests extends TestBase {
                 TestDataCollection.regLogPassword,
                 TestDataCollection.emailWithoutDot,
                 TestDataCollection.regLogDescription);
+        utils.makeScreenshot();
         boolean actual = regLog.isThereRegisterStatus();
         Assertions.assertFalse(actual);
     }
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Registration tests")
-    @Description("Password is empty test")
-    @DisplayName("TC08")
+    @DisplayName("TC08, Password is empty test")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationPasswordIsEmpty(){
         regLog.clickOnTermsAndConditionsAccept();
@@ -103,14 +99,14 @@ public class RegistrationTests extends TestBase {
                 TestDataCollection.empty,
                 TestDataCollection.email,
                 TestDataCollection.regLogDescription);
+        utils.makeScreenshot();
         boolean actual = regLog.isThereRegisterStatus();
         Assertions.assertFalse(actual);
     }
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Registration tests")
-    @Description("Username is empty test")
-    @DisplayName("TC09")
+    @DisplayName("TC09, Username is empty test")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationUsernameIsEmpty(){
         regLog.clickOnTermsAndConditionsAccept();
@@ -119,14 +115,14 @@ public class RegistrationTests extends TestBase {
                 TestDataCollection.regLogPassword,
                 TestDataCollection.email,
                 TestDataCollection.regLogDescription);
+        utils.makeScreenshot();
         boolean actual = regLog.isThereRegisterStatus();
         Assertions.assertFalse(actual);
     }
     @RepeatedTest(1)
     @Epic("Portio")
     @Story("Registration tests")
-    @Description("Everything is empty test")
-    @DisplayName("TC10")
+    @DisplayName("TC10, Everything is empty test")
     @Severity(SeverityLevel.CRITICAL)
     public void testRegistrationEverythingIsEmpty(){
         regLog.clickOnTermsAndConditionsAccept();
@@ -135,6 +131,7 @@ public class RegistrationTests extends TestBase {
                 TestDataCollection.empty,
                 TestDataCollection.empty,
                 TestDataCollection.empty);
+        utils.makeScreenshot();
         boolean actual = regLog.isThereRegisterStatus();
         Assertions.assertFalse(actual);
     }
