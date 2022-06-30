@@ -24,7 +24,8 @@ Az alkalmazás a [Portio](https://lennertamas.github.io/portio/) weboldal felül
 - A választott integrált fejlesztői környezetünkben (ajánlott: IntelliJ IDEA) futtathatjuk a teszeseteket.
 - Miután megnyitottuk a projektet az src/test/java/requirements mappastruktúrán végighaladva találjuk meg a java teszt fájlokat.
 - Kattintsunk duplán az általunk kiválasztott java teszt fájlra.
-- A tesztek mellett baloldalon, a számozott sávban található zöld hárömszögekre kattintva futtathatjuk a teszteket egyenként, vagy mindet egyszerre.
+- A tesztek mellett baloldalon, a számozott sávban található zöld hárömszögekre kattintva futtathatjuk a teszteket egyenként, vagy mindet egyszerre:
+
 ![Szemléltetés](https://user-images.githubusercontent.com/70565508/176660079-14d05b52-8bf4-4b6f-a063-ec2b2697156a.jpg)
 
 
