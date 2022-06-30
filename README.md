@@ -22,11 +22,13 @@ Az alkalmazás a [Portio](https://lennertamas.github.io/portio/) weboldal felül
 
 - Klónozzuk le a repót: [Vizsgaremek GitHub link](https://github.com/sltnwlf/vizsgaremek)
 - A választott integrált fejlesztői környezetünkben (ajánlott: IntelliJ IDEA) futtathatjuk a teszeseteket.
-- Miután megnyitottuk a projektet, a java teszt fájlra jobb gombbal kattintva kiválaszthatjuk a futtatást.
+- Miután megnyitottuk a projektet az src/test/java/requirements mappastruktúrán végighaladva találjuk meg a java teszt fájlokat.
+- Kattintsunk duplán az általunk választott fájlra.
+- A tesztek mellett baloldalon egy számozott sávban található, zöld hárömszögekre kattintva futtathatjuk a teszteket egyenként, vagy mindet egyszerre.
 - ![Szemléltetés](https://user-images.githubusercontent.com/70565508/176660079-14d05b52-8bf4-4b6f-a063-ec2b2697156a.jpg)
 
 
-Az alkalmazás programnyelve a Java.
+Felhasznált rogramnyelv: Java.
 
 A teszek manuális változata itt érhető el: [Tesztmenedzser](https://docs.google.com/spreadsheets/d/1WtmtIIeiKt6JyAhC4ozFHMczu5a7kk5kagEljPkhrGE/edit#gid=1257095171)
 
