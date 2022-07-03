@@ -32,4 +32,4 @@ Az alkalmazás a Portio weboldal felületét teszteli, változatos szempontok al
 - Miután megnyitottuk a projektet az src/test/java/requirements mappastruktúrán végighaladva találjuk meg a java teszt fájlokat.
 - Kattintsunk duplán az általunk kiválasztott java teszt fájlra.
 - A tesztektől balra található számozott sávban, a zöld hárömszögekre kattintva futtathatjuk a teszteket:
-![szemléltetés](https://user-images.githubusercontent.com/70565508/177026113-315b6409-db9d-4a75-8813-d701d9d3a0f1.jpg)
+![szemléltetés](https://user-images.githubusercontent.com/70565508/177026286-14c756fd-93e0-4b29-8189-adcf529a3101.jpg)
